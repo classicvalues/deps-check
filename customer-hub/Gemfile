@@ -1,0 +1,78 @@
+source 'https://rubygems.org'
+
+# https://github.com/bundler/bundler/issues/4978
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
+  "https://github.com/#{repo_name}.git"
+end
+
+gem 'rails', '~> 5.2.2'
+gem 'sidekiq'
+
+# server
+gem 'bootsnap', require: false
+gem 'puma'
+
+# database
+gem 'hirb'
+gem 'jsonb_accessor'
+gem 'pg'
+
+# assets
+gem 'font_awesome5_rails'
+gem 'haml-rails'
+gem 'sassc-rails'
+gem 'turbolinks'
+
+# app
+gem 'country_select'
+gem 'countries'
+gem 'devise'
+gem 'pundit'
+gem 'state_machines-activerecord'
+
+## paypal
+gem 'ianfleeton-paypal-express', github: 'ianfleeton/paypal-express', require: 'paypal/express'
+# pdf for receipts
+gem 'wicked_pdf' # https://github.com/mileszs/wicked_pdf
+gem 'wkhtmltopdf-binary'
+# docu gem https://github.com/lsegal/yard
+gem 'yard'
+
+# api
+gem 'grape'
+gem 'grape-entity', github: 'ruby-grape/grape-entity', branch: 'master'
+
+# cron job https://fuzzyblog.io/blog/rails/2017/05/11/adding-cron-to-a-dockerized-rails-application-using-clockwork.html
+# https://github.com/adamwiggins/clockwork
+gem 'clockwork'
+
+group :development do
+  gem 'grape_on_rails_routes'
+  gem 'letter_opener'
+  gem 'seedbank'
+  gem "rails-erd"
+end
+
+group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'fix-db-schema-conflicts'
+  gem 'pry-byebug'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'pundit-matchers'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
+  gem 'state_machines-rspec'
+
+  gem 'capybara'
+  gem 'fakeredis'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  # check if the release is out yet https://github.com/thoughtbot/shoulda-matchers/milestone/13
+end
