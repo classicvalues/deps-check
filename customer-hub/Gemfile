@@ -28,8 +28,14 @@ gem 'turbolinks'
 gem 'country_select'
 gem 'countries'
 gem 'devise'
+gem 'faker'
 gem 'pundit'
 gem 'state_machines-activerecord'
+gem 'activeadmin'
+
+# admin charts https://github.com/ankane/chartkick
+gem "chartkick"
+gem 'groupdate'
 
 ## paypal
 gem 'ianfleeton-paypal-express', github: 'ianfleeton/paypal-express', require: 'paypal/express'
@@ -56,7 +62,6 @@ end
 
 group :development, :test do
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'fix-db-schema-conflicts'
   gem 'pry-byebug'
 end
