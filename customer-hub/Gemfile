@@ -53,6 +53,9 @@ gem 'grape-entity', github: 'ruby-grape/grape-entity', branch: 'master'
 # https://github.com/adamwiggins/clockwork
 gem 'clockwork'
 
+# error catcher https://github.com/smartinez87/exception_notification
+gem 'exception_notification'
+
 group :development do
   gem 'grape_on_rails_routes'
   gem 'letter_opener'
