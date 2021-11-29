@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.2.2'
+gem 'rails', '6.1.4'
 gem 'sidekiq'
 
 # server
@@ -39,13 +39,14 @@ gem 'groupdate'
 
 ## paypal
 gem 'ianfleeton-paypal-express', github: 'ianfleeton/paypal-express', require: 'paypal/express'
+# stripe
+gem 'stripe'
 # pdf for receipts
 gem 'wicked_pdf' # https://github.com/mileszs/wicked_pdf
 gem 'wkhtmltopdf-binary'
-# docu gem https://github.com/lsegal/yard
-gem 'yard'
 
 # api
+gem 'faraday'
 gem 'grape'
 gem 'grape-entity', github: 'ruby-grape/grape-entity', branch: 'master'
 
@@ -53,8 +54,13 @@ gem 'grape-entity', github: 'ruby-grape/grape-entity', branch: 'master'
 # https://github.com/adamwiggins/clockwork
 gem 'clockwork'
 
+# qr-code https://github.com/whomwah/rqrcode
+gem 'rqrcode'
 # error catcher https://github.com/smartinez87/exception_notification
 gem 'exception_notification'
+
+# ancestry https://github.com/stefankroes/ancestry
+gem 'ancestry'
 
 group :development do
   gem 'grape_on_rails_routes'
@@ -75,8 +81,12 @@ group :test do
   gem 'pundit-matchers'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'master'
+  gem 'shoulda-matchers'
   gem 'state_machines-rspec'
+
+  # stripe-mock is a mock HTTP server that responds like the real Stripe API
+  # https://github.com/stripe-ruby-mock/stripe-ruby-mock
+  gem 'stripe-ruby-mock', '~> 3.1.0.rc3', :require => 'stripe_mock'
 
   gem 'capybara'
   gem 'fakeredis'
